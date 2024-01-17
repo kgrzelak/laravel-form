@@ -1,0 +1,12 @@
+{
+  "required": {
+    "php": "^8.2",
+    "spatie/laravel-package-tools": "^1.16.1",
+    "illuminate/bus": "^10.0",
+    "illuminate/conditionable": "^10.0",
+    "illuminate/console": "^10.0",
+    "illuminate/database": "^10.0",
+    "illuminate/pipeline": "^10.0",
+    "illuminate/support": "^10.0"
+  }
+}
