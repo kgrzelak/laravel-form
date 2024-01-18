@@ -10,6 +10,7 @@ class LaravelFormServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name('laravel-form')
-            ->hasConfigFile('laravel-form');
+            ->hasConfigFile('laravel-form')
+            ->hasViews('laravel-form');
     }
 }
