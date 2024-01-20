@@ -4,7 +4,9 @@ namespace Kgrzelak\LaravelForm\Items;
 
 class FormSelect extends BaseItem
 {
-    protected string $class = 'form-select';
-
-    protected string $viewName = 'select';
+    public function __construct()
+    {
+        $this->class = config('laravel-form.select.class', 'form-select');
+        $this->viewName = 'select';
+    }
 }

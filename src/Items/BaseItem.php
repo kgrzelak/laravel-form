@@ -11,6 +11,16 @@ abstract class BaseItem implements Htmlable, Stringable
 
     protected string $name;
 
+    protected string $type;
+
+    protected string $value;
+
+    protected string $placeholder;
+
+    protected array $attributes;
+
+    protected bool $required = false;
+
     protected string $class = 'form-control';
 
     protected string $viewName = 'input';
@@ -29,6 +39,41 @@ abstract class BaseItem implements Htmlable, Stringable
         return $this;
     }
 
+    public function setType(string $type): static
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function setValue(string $value): static
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    public function setPlaceholder(string $placeholder): static
+    {
+        $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+    public function setAttributes(array $attributes): static
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    public function setRequired(bool $required): static
+    {
+        $this->required = $required;
+
+        return $this;
+    }
+
     public function setClass(string $class): static
     {
         $this->class = $class;
@@ -41,7 +86,21 @@ abstract class BaseItem implements Htmlable, Stringable
         return view('laravel-form::' . $this->viewName, [
             'id' => $this->id,
             'name' => $this->name,
+            'class' => $this->class,
+            'type' => $this->type,
+            'attributes' => $this->attributes($this->attributes)
         ])->render();
+    }
+
+    private function attributes(array $attributes): string
+    {
+        $items = '';
+
+        foreach ($attributes as $key => $value) {
+            $items .= $key.'="'.$value.'"';
+        }
+
+        return $items;
     }
 
     public function __toString(): string
