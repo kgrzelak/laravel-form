@@ -90,18 +90,11 @@ abstract class BaseItem implements Htmlable, Stringable
             'type' => $this->type,
             'value' => $this->value,
             'placeholder' => $this->placeholder,
-            'attributes' => $this->attributes($this->attributes),
+            'attributes' => new Attributes($this->attributes),
             'required' => $this->required
         ])->render();
     }
-
-    private function attributes(array $attributes): string
-    {
-        return view('laravel-form::_attributes', [
-            'attributes' => $attributes
-        ])->render();
-    }
-
+    
     public function __toString(): string
     {
         return $this->toHtml();
