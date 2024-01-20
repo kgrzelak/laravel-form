@@ -97,13 +97,9 @@ abstract class BaseItem implements Htmlable, Stringable
 
     private function attributes(array $attributes): string
     {
-        $items = '';
-
-        foreach ($attributes as $key => $value) {
-            $items .= $key.'="'.$value.'"';
-        }
-
-        return $items;
+        return view('laravel-form::_attributes', [
+            'attributes' => $attributes
+        ])->render();
     }
 
     public function __toString(): string
