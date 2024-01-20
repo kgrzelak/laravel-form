@@ -7,17 +7,17 @@ use Stringable;
 
 abstract class BaseItem implements Htmlable, Stringable
 {
-    protected string $id;
+    protected ?string $id = null;
 
-    protected string $name;
+    protected ?string $name = null;
 
-    protected string $type;
+    protected string $type = 'text';
 
-    protected string $value;
+    protected ?string $value = null;
 
-    protected string $placeholder;
+    protected ?string $placeholder = null;
 
-    protected array $attributes;
+    protected array $attributes = [];
 
     protected bool $required = false;
 
