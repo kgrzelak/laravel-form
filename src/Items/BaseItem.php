@@ -89,6 +89,7 @@ abstract class BaseItem implements Htmlable, Stringable
             'class' => $this->class,
             'type' => $this->type,
             'value' => $this->value,
+            'placeholder' => $this->placeholder,
             'attributes' => $this->attributes($this->attributes),
             'required' => $this->required
         ])->render();
