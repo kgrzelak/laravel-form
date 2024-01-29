@@ -22,7 +22,7 @@
     "laravel": {
       "providers": [
         "Kgrzelak\\LaravelForm\\LaravelFormServiceProvider"
-      ]
+      ],
       "aliases": {
         "Form": "Kgrzelak\\LaravelForm\\LaravelForm"
       }
