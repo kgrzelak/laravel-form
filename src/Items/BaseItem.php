@@ -25,6 +25,8 @@ abstract class BaseItem implements Htmlable, Stringable
 
     protected string $viewName = 'input';
 
+    protected ?array $options = null;
+
     public function setId(string $id): static
     {
         $this->id = $id;
@@ -91,7 +93,8 @@ abstract class BaseItem implements Htmlable, Stringable
             'value' => $this->value,
             'placeholder' => $this->placeholder,
             'attributes' => new Attributes($this->attributes),
-            'required' => $this->required
+            'required' => $this->required,
+            'options' => $this->options
         ])->render();
     }
     
