@@ -4,6 +4,7 @@ namespace Kgrzelak\LaravelForm;
 
 use Kgrzelak\LaravelForm\Items\FormInput;
 use Kgrzelak\LaravelForm\Items\FormSelect;
+use Kgrzelak\LaravelForm\Items\FormTextarea;
 
 class LaravelForm
 {
@@ -15,5 +16,10 @@ class LaravelForm
     public static function select(): FormSelect
     {
         return new FormSelect();
+    }
+
+    public static function textarea(): FormTextarea
+    {
+        return new FormTextarea();
     }
 }
