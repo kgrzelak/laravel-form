@@ -29,7 +29,7 @@ abstract class BaseItem implements Htmlable, Stringable
 
     public function setId(string $id): static
     {
-        $this->id = $id;
+        $this->attributes['id'] = $id;
 
         return $this;
     }
@@ -86,7 +86,6 @@ abstract class BaseItem implements Htmlable, Stringable
     public function toHtml(): string
     {
         return view('laravel-form::' . $this->viewName, [
-            'id' => $this->id,
             'name' => $this->name,
             'class' => $this->class,
             'type' => $this->type,
