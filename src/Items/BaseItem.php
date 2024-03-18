@@ -48,7 +48,7 @@ abstract class BaseItem implements Htmlable, Stringable
         return $this;
     }
 
-    public function setValue(string $value): static
+    public function setValue(?string $value = null): static
     {
         $this->value = $value;
 
