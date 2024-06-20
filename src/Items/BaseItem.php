@@ -2,6 +2,7 @@
 
 namespace Kgrzelak\LaravelForm\Items;
 
+use BackedEnum;
 use Illuminate\Contracts\Support\Htmlable;
 use Stringable;
 
@@ -48,8 +49,12 @@ abstract class BaseItem implements Htmlable, Stringable
         return $this;
     }
 
-    public function setValue(?string $value = null): static
+    public function setValue(mixed $value = null): static
     {
+        if ($value instanceof BackedEnum) {
+            $value = $value->value;
+        }
+
         $this->value = $value;
 
         return $this;
@@ -96,7 +101,7 @@ abstract class BaseItem implements Htmlable, Stringable
             'options' => $this->options
         ])->render();
     }
-    
+
     public function __toString(): string
     {
         return $this->toHtml();
