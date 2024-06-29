@@ -10,6 +10,11 @@ class Attributes
     private array $attributes = [];
 
     /**
+     * @var array
+     */
+    private array $classes = [];
+
+    /**
      * @param string $name
      * @param string|null $value
      * @return Attributes
@@ -21,9 +26,23 @@ class Attributes
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getAttributes(): array
     {
         return $this->attributes;
+    }
+
+    /**
+     * @param string $class
+     * @return Attributes
+     */
+    public function addClass(string $class): static
+    {
+        $this->classes[] = $class;
+
+        return $this;
     }
 
     /**
@@ -31,12 +50,16 @@ class Attributes
      */
     public function __toString(): string
     {
-        $html = '';
+        $html = [];
 
-        foreach ($this->attributes as $name => $value) {
-            $html .= sprintf('%s="%s" ', $name, $value);
+        if ($this->classes) {
+            $this->attributes['class'] = implode(' ', $this->classes);
         }
 
-        return $html;
+        foreach ($this->attributes as $name => $value) {
+            $html[$name] = sprintf('%s="%s"', $name, $value);
+        }
+
+        return implode(' ', $html);
     }
 }
