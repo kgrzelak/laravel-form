@@ -15,11 +15,12 @@ class Attributes
     private array $classes = [];
 
     /**
+     * @description Set attribute
      * @param string $name
      * @param string|null $value
      * @return Attributes
      */
-    public function setAttribute(string $name, ?string $value = null): self
+    public function setAttribute(string $name, mixed $value = null): self
     {
         $this->attributes[$name] = $value;
 
@@ -27,6 +28,7 @@ class Attributes
     }
 
     /**
+     * @description Get all attributes
      * @return array
      */
     public function getAttributes(): array
@@ -35,6 +37,17 @@ class Attributes
     }
 
     /**
+     * @description Get attribute by name
+     * @param string $name
+     * @return string|null
+     */
+    public function getAttribute(string $name): ?string
+    {
+        return $this->attributes[$name] ?? null;
+    }
+
+    /**
+     * @description Add class to the attributes
      * @param string $class
      * @return Attributes
      */
@@ -57,7 +70,7 @@ class Attributes
         }
 
         foreach ($this->attributes as $name => $value) {
-            $html[$name] = sprintf('%s="%s"', $name, $value);
+            $html[$name] = sprintf('%s="%s"', $name, e($value));
         }
 
         return implode(' ', $html);
