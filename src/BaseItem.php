@@ -24,7 +24,7 @@ abstract class BaseItem implements Htmlable, Stringable
 
     public function __construct()
     {
-        $this->attributes = new Attributes;
+        $this->attributes = new Attributes();
 
         $this->attributes->addClass(config('laravel-form.' . $this->viewName . '.class', 'form-control'));
         $this->attributes->setAttribute('type', $this->type);
