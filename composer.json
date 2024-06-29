@@ -17,7 +17,8 @@
         "phpunit/phpunit": "^11.2",
         "mockery/mockery": "^1.6",
         "orchestra/testbench": "^9.1",
-        "friendsofphp/php-cs-fixer": "^3.59"
+        "friendsofphp/php-cs-fixer": "^3.59",
+        "phpstan/phpstan": "^1.11"
     },
     "autoload": {
         "psr-4": {
