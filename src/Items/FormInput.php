@@ -2,10 +2,14 @@
 
 namespace Kgrzelak\LaravelForm\Items;
 
+use Kgrzelak\LaravelForm\BaseItem;
+
 class FormInput extends BaseItem
 {
-    public function __construct()
+    public string $viewName = 'input';
+
+    public function render(): string
     {
-        $this->class = config('laravel-form.input.class', 'form-input');
+        return '<input' . $this->attributes . '>';
     }
 }

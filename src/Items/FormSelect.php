@@ -2,13 +2,13 @@
 
 namespace Kgrzelak\LaravelForm\Items;
 
+use Kgrzelak\LaravelForm\BaseItem;
+
 class FormSelect extends BaseItem
 {
-    public function __construct()
-    {
-        $this->class = config('laravel-form.select.class', 'form-select');
-        $this->viewName = 'select';
-    }
+    public string $viewName = 'select';
+
+    protected array $options = [];
 
     public function setOptions(array $options): static
     {

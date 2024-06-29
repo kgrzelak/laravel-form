@@ -18,10 +18,15 @@ class Attributes
      * @description Set attribute
      * @param string $name
      * @param string|null $value
-     * @return Attributes
+     * @return static
      */
     public function setAttribute(string $name, mixed $value = null): self
     {
+        if ($value === null) {
+            unset($this->attributes[$name]);
+            return $this;
+        }
+
         $this->attributes[$name] = $value;
 
         return $this;
@@ -56,6 +61,27 @@ class Attributes
         $this->classes[] = $class;
 
         return $this;
+    }
+
+    /**
+     * @description Set class to the attributes
+     * @param string $class
+     * @return static
+     */
+    public function setClass(string $class): static
+    {
+        $this->classes = [$class];
+
+        return $this;
+    }
+
+    /**
+     * @description Get all classes
+     * @return array
+     */
+    public function getClass(): array
+    {
+        return $this->classes;
     }
 
     /**
