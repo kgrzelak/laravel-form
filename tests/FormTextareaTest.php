@@ -4,7 +4,7 @@ namespace Kgrzelak\LaravelForm\Tests;
 
 use Kgrzelak\LaravelForm\LaravelForm;
 
-class FormTextareaTest extends TestCase
+final class FormTextareaTest extends TestCase
 {
     public function testCanCreateTextarea(): void
     {

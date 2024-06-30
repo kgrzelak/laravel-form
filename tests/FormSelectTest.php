@@ -4,7 +4,7 @@ namespace Kgrzelak\LaravelForm\Tests;
 
 use Kgrzelak\LaravelForm\LaravelForm;
 
-class FormSelectTest extends TestCase
+final class FormSelectTest extends TestCase
 {
     public function testCanRenderSelect(): void
     {
