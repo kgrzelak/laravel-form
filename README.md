@@ -14,10 +14,12 @@ php artisan vendor:publish --provider="Kgrzelak\LaravelForm\LaravelFormServicePr
 
 ```php
 Form::input()
-    ->setName('input-name')
-    ->setType('text')
-    ->setValue('input-value')
-    ->setPlaceholder('input-placeholder')
+    ->name('input-name')
+    ->type('text')
+    ->value('input-value')
+    ->placeholder('input-placeholder')
     ->setClass('form-control')
-    ->setAttributes(['readonly' => 'readonly']);
+    ->addClass('mt-5')
+    ->attribute('readonly', 'readonly')
+    ->attribute('required', 'required');
 ```
