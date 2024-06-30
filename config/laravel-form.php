@@ -15,6 +15,7 @@ return [
 
     'errors' => [
         'enabled' => true,
+        'element-class' => 'is-invalid',
         'html' => '<span class="invalid-feedback" role="alert"><strong>:message:</strong></span>'
     ]
 ];

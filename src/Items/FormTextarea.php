@@ -7,6 +7,4 @@ use Kgrzelak\LaravelForm\BaseItem;
 class FormTextarea extends BaseItem
 {
     public string $viewName = 'textarea';
-
-    public ?string $type = null;
 }

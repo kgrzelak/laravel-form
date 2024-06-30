@@ -14,7 +14,7 @@ use Stringable;
 
 abstract class BaseItem implements Htmlable, Stringable
 {
-    protected ?string $type = 'text';
+    protected ?string $type = null;
 
     protected Attributes $attributes;
 
@@ -189,7 +189,7 @@ abstract class BaseItem implements Htmlable, Stringable
     public function toHtml(): string
     {
         if ($this->hasError() && config('laravel-form.errors.enabled', false)) {
-            $this->attributes->addClass('is-invalid');
+            $this->attributes->addClass(config('laravel-form.errors.element-class', 'is-invalid'));
         }
 
         return new HtmlString(

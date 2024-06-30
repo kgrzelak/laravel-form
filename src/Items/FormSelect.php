@@ -8,8 +8,6 @@ class FormSelect extends BaseItem
 {
     public string $viewName = 'select';
 
-    public ?string $type = null;
-
     protected array $options = [];
 
     public function setOptions(array $options): static
