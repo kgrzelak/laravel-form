@@ -2,11 +2,9 @@
 
 namespace Kgrzelak\LaravelForm\Items;
 
+use Kgrzelak\LaravelForm\BaseItem;
+
 class FormTextarea extends BaseItem
 {
-    public function __construct ()
-    {
-        $this->class = config('laravel-form.textarea.class', 'form-control');
-        $this->viewName = 'textarea';
-    }
+    public string $viewName = 'textarea';
 }

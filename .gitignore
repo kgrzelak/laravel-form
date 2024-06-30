@@ -6,3 +6,7 @@ composer.lock
 vendor/
 
 test.php
+
+.phpunit.result.cache
+
+.php-cs-fixer.cache
