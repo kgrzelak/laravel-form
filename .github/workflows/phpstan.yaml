@@ -1,0 +1,31 @@
+name: PHPStan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.php'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  phpstan:
+    name: phpstan
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v4
+        with:
+          php-version: '8.2'
+          extensions: curl, zip, mbstring
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --no-progress --no-interaction --memory-limit=-1 --ansi src tests
