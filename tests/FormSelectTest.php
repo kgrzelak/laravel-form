@@ -27,7 +27,7 @@ final class FormSelectTest extends TestCase
         $this->assertEquals('<select name="test" class="form-select"><option value="test">Test</option><option value="test2">Test 2</option></select>', $select);
     }
 
-    public function testSelectedOptionWorks()
+    public function testSelectedOptionWorks(): void
     {
         $select = LaravelForm::select()->name('test')->addOption('test', 'Test')
             ->addOption('test2', 'Test 2')->value('test2')->toHtml();
@@ -35,7 +35,7 @@ final class FormSelectTest extends TestCase
         $this->assertEquals('<select name="test" class="form-select"><option value="test">Test</option><option value="test2" selected>Test 2</option></select>', $select);
     }
 
-    public function testCanSetOptionsAsMultidimensionalArray()
+    public function testCanSetOptionsAsMultidimensionalArray(): void
     {
         $select = LaravelForm::select()->name('test')->setOptions([['value' => 'test', 'label' => 'Test'], ['value' => 'test2', 'label' => 'Test 2']]);
 
