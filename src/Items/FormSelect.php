@@ -12,7 +12,13 @@ class FormSelect extends BaseItem
 
     public function setOptions(array $options): static
     {
-        $this->options = $options;
+        if (count($options) === count($options, COUNT_RECURSIVE)) {
+            foreach ($options as $value => $label) {
+                $this->options[] = ['value' => $value, 'label' => $label];
+            }
+        } else {
+            $this->options = $options;
+        }
 
         return $this;
     }
