@@ -16,7 +16,9 @@ class SelectRender implements Render
         $options = '<select ' . $attributes . '>';
 
         foreach ($this->options as $option) {
-            $options .= '<option value="' . $option['value'] . '">' . $option['label'] . '</option>';
+            $selected = $option['value'] == $attributes->getAttribute('value') ? ' selected' : '';
+
+            $options .= '<option value="' . $option['value'] . '"' . $selected . '>' . $option['label'] . '</option>';
         }
 
         $options .= '</select>';
