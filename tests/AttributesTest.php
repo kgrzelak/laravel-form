@@ -38,4 +38,13 @@ final class AttributesTest extends TestCase
 
         $this->assertEquals('test', $attributes->getAttribute('data-test'));
     }
+
+    public function testCanRemoveAttribute(): void
+    {
+        $attributes = new Attributes();
+        $attributes->setAttribute('data-test', 'test');
+        $attributes->setAttribute('data-test');
+
+        $this->assertEquals([], $attributes->getAttributes());
+    }
 }
