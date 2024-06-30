@@ -26,4 +26,12 @@ final class FormSelectTest extends TestCase
 
         $this->assertEquals('<select name="test" class="form-select"><option value="test">Test</option><option value="test2">Test 2</option></select>', $select);
     }
+
+    public function testSelectedOptionWorks()
+    {
+        $select = LaravelForm::select()->name('test')->addOption('test', 'Test')
+            ->addOption('test2', 'Test 2')->value('test2')->toHtml();
+
+        $this->assertEquals('<select name="test" class="form-select"><option value="test">Test</option><option value="test2" selected>Test 2</option></select>', $select);
+    }
 }
