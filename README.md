@@ -1,4 +1,4 @@
-# Html form helper for Laravel
+# HTML form helper for Laravel
 
 ## Features
 - Simple form elements creation with laravel errors from validation
