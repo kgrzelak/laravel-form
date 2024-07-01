@@ -31,7 +31,7 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Set the id attribute of the input
+     * @description Set the id attribute of the element
      * @param string|int $id
      * @return static
      */
@@ -55,8 +55,8 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Set the name attribute of the input
-     * @param string $name - Name of the input
+     * @description Set the name attribute of the element
+     * @param string $name - Name of the element
      * @return static
      */
     public function name(string $name): static
@@ -68,7 +68,7 @@ abstract class BaseItem implements Htmlable, Stringable
 
     /**
      * @deprecated Use name() instead
-     * @param string $name - Name of the input
+     * @param string $name - Name of the element
      * @return $this
      */
     public function setName(string $name): static
@@ -105,7 +105,7 @@ abstract class BaseItem implements Htmlable, Stringable
 
     /**
      * @description Set the value of the input
-     * @param mixed|null $value - Value of the input
+     * @param mixed|null $value - Value of the element
      * @return static
      */
     public function value(mixed $value = null): static
@@ -144,7 +144,7 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Set the placeholder of the input
+     * @description Set the placeholder of the element
      * @param string $placeholder
      * @return static
      */
@@ -156,7 +156,7 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Set the required attribute of the input
+     * @description Set the required attribute of the element
      * @param bool $required
      * @return static
      */
@@ -168,8 +168,20 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Set the class of the input
-     * @param string $class - Name of the class
+     * @deprecated Use required() instead
+     * @param bool $required
+     * @return static
+     */
+    public function setRequired(bool $required): static
+    {
+        $this->attributes->setAttribute('required', $required);
+
+        return $this;
+    }
+
+    /**
+     * @description Set the class of the element
+     * @param string $class - Name of the element class
      * @return static
      */
     public function setClass(string $class): static
@@ -180,8 +192,8 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Add a class to the input
-     * @param string $class - Name of the class
+     * @description Add a class to the element
+     * @param string $class - Name of the element class
      * @return static
      */
     public function addClass(string $class): static
@@ -192,7 +204,7 @@ abstract class BaseItem implements Htmlable, Stringable
     }
 
     /**
-     * @description Set the attribute of the input
+     * @description Set the attribute of the element
      * @param string|int $name - Name of the attribute
      * @param string|null $value - Value of the attribute
      * @return static
