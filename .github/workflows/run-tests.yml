@@ -1,6 +1,14 @@
 name: run-tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.php'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   run-tests:
