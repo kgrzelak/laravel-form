@@ -160,9 +160,9 @@ abstract class BaseItem implements Htmlable, Stringable
      * @param bool $required
      * @return static
      */
-    public function required(bool $required): static
+    public function required(bool $required = true): static
     {
-        $this->attributes->setAttribute('required', $required);
+        $this->attributes->setAttribute('required', $required ? 'required' : null);
 
         return $this;
     }
@@ -212,6 +212,20 @@ abstract class BaseItem implements Htmlable, Stringable
     public function attribute(string|int $name, ?string $value = null): static
     {
         $this->attributes->setAttribute($name, $value);
+
+        return $this;
+    }
+
+    /**
+     * @description Set the attributes of the element
+     * @param array<string, mixed> $attributes
+     * @return static
+     */
+    public function setAttributes(array $attributes): static
+    {
+        foreach ($attributes as $name => $value) {
+            $this->attributes->setAttribute($name, $value);
+        }
 
         return $this;
     }

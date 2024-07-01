@@ -22,7 +22,7 @@ class Attributes
      */
     public function setAttribute(string $name, mixed $value = null): self
     {
-        if ($value === null) {
+        if ($value === null || $value === false) {
             unset($this->attributes[$name]);
             return $this;
         }
