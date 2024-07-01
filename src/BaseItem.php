@@ -78,7 +78,25 @@ abstract class BaseItem implements Htmlable, Stringable
         return $this;
     }
 
-    public function type(string $type): static
+    /**
+     * @description Set the type of the element
+     * @param string|null $type
+     * @return static
+     */
+    public function type(?string $type = null): static
+    {
+        $this->attributes->setAttribute('type', $type);
+
+        return $this;
+    }
+
+    /**
+     * @deprecated Use type() instead
+     * @description Set the type of the element
+     * @param string|null $type
+     * @return static
+     */
+    public function setType(?string $type = null): static
     {
         $this->attributes->setAttribute('type', $type);
 

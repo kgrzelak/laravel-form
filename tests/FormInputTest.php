@@ -82,4 +82,18 @@ final class FormInputTest extends TestCase
 
         $this->assertEquals('<input type="text" name="test" class="form-control">', $item);
     }
+
+    public function testCanCreateInputWithCustomType(): void
+    {
+        $item = LaravelForm::input()->type('password');
+
+        $this->assertEquals('<input type="password" class="form-control">', $item);
+    }
+
+    public function testCanCreateInputWithoutType()
+    {
+        $item = LaravelForm::input()->type(null);
+
+        $this->assertEquals('<input class="form-control">', $item);
+    }
 }
