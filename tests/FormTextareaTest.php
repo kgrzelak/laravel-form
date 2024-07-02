@@ -55,8 +55,17 @@ final class FormTextareaTest extends TestCase
 
     public function testCanCreateTextareaWithValue(): void
     {
-        $item = LaravelForm::textarea()->value('test');
+        $item = LaravelForm::textarea()->value('test')->toHtml();
 
         $this->assertEquals('<textarea class="form-control">test</textarea>', $item);
+    }
+
+    public function testCanCreateTextareaWithOldValue(): void
+    {
+        $this->setInputs();
+
+        $item = LaravelForm::textarea()->name('test');
+
+        $this->assertEquals('<textarea name="test" class="form-control">test</textarea>', $item);
     }
 }

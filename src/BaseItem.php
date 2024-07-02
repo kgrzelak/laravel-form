@@ -114,10 +114,6 @@ abstract class BaseItem implements Htmlable, Stringable
             $value = $value->value;
         }
 
-        if (app('request')->old($this->attributes->getAttribute('name'))) {
-            $value = app('request')->old($this->attributes->getAttribute('name'));
-        }
-
         $this->attributes->setAttribute('value', $value);
 
         return $this;
@@ -132,10 +128,6 @@ abstract class BaseItem implements Htmlable, Stringable
     {
         if ($value instanceof BackedEnum) {
             $value = $value->value;
-        }
-
-        if (app('request')->old($this->attributes->getAttribute('name'))) {
-            $value = app('request')->old($this->attributes->getAttribute('name'));
         }
 
         $this->attributes->setAttribute('value', $value);
@@ -236,6 +228,8 @@ abstract class BaseItem implements Htmlable, Stringable
             $this->attributes->addClass(config('laravel-form.errors.element-class', 'is-invalid'));
         }
 
+        $this->setOld();
+
         return new HtmlString(
             match ($this->viewName) {
                 'input' => (new InputRender())->render($this->attributes),
@@ -290,5 +284,19 @@ abstract class BaseItem implements Htmlable, Stringable
         }
 
         return $errors;
+    }
+
+    private function setOld(): void
+    {
+        $value = $this->attributes->getAttribute('value');
+
+        if (!$this->attributes->getAttribute('name')) {
+            return;
+        }
+
+        $this->attributes->setAttribute(
+            name: 'value',
+            value: app('session')->getOldInput($this->attributes->getAttribute('name'), $value)
+        );
     }
 }

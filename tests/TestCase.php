@@ -24,4 +24,10 @@ class TestCase extends Orchestra
         $this->startSession();
         $this->withSession(['errors' => (new ViewErrorBag)->put('default', new MessageBag(['test' => 'error']))]);
     }
+
+    public function setInputs(): void
+    {
+        $this->startSession();
+        app('session')->flashInput(['test' => 'test']);
+    }
 }
