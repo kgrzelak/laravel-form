@@ -117,4 +117,26 @@ final class FormInputTest extends TestCase
 
         $this->assertEquals('<input type="text" class="form-control">', $item);
     }
+
+    public function testCanCreateInputWithOldValues()
+    {
+        $this->setInputs();
+
+        $item = LaravelForm::input()->name('test');
+
+        $this->assertEquals('<input type="text" name="test" value="test" class="form-control">', $item);
+    }
+
+    public function testCanCreateInputWithOldValuesAndErrors()
+    {
+        $this->setInputs();
+        $this->setErrors();
+
+        $item = LaravelForm::input()->name('test');
+
+        $this->assertEquals(
+            expected: '<input type="text" name="test" value="test" class="form-control is-invalid"><span class="invalid-feedback" role="alert"><strong>error</strong></span>',
+            actual: $item
+        );
+    }
 }
